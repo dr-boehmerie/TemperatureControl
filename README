@@ -1,0 +1,42 @@
+Temperature Control
+
+This project is a temperature controller for an electric heater
+and a fan for a conservatory using an ATmega48.
+
+The microcontroller reads two 1-Wire temperature sensors DS18B20 from MAXIM,
+displays the values and switches the heater and the fan depending
+on user settable thresholds. The first sensor is situated near
+the ceiling of the conservatory, the other near the floor.
+The heater is switched on if one of the two measured temperatures
+falls below the lower threshold and switched off if the upper threshold
+is reached.
+The fan is switched on or off depending on the difference between
+the two temperatures, to circulate the air in the conservatory.
+
+Two 3 1/2 digit 7 segment LED displays are used to display the temperatures,
+and four buttons to navigate through the menus to set the thresholds and view
+recent temperature levels. The buttons are connected to a resistor ladder and
+read via the integrated ADC.
+The user thresholds are stored in the EEPROM inside the AVR.
+
+The code for reading the 1-Wire sensors is taken from the MAXIM AppNote AN187
+and the datasheet of the DS18B20.
+There is also some unused code to measure the temperatures through the
+integrated ADC and resistive temperature sensors (e.g. KTY series),
+but the conversion from voltage to temperature is not implemented.
+
+The project is created with AVR-Studio 4 (just for programming the AVR),
+and I use eclipse and WinAVR-20100110 to edit and compile it.
+There are two circuit diagrams, created with Target3001!, in TempCtrl.pdf.
+The first page contains the microcontroller and the mains section,
+the second page the display section.
+
+Almost all comments and the PDF documents are in german, well, because I'm german
+and I created this project for my parents.
+I just thought, someone might find it useful, too :-)
+
+
+The code is free software; you can redistribute it and/or modify
+it under the terms of either the GNU General Public License version 2
+or the GNU Lesser General Public License version 2.1, both as
+published by the Free Software Foundation.
